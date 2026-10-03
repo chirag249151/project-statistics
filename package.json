@@ -1,0 +1,82 @@
+{
+  "name": "project-statistics",
+  "displayName": "Project Statistics",
+  "description": "Analyze project files and generate useful statistics",
+  "version": "0.0.1",
+  "publisher": "chirag-sharma",
+
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+
+  "categories": [
+    "Visualization"
+  ],
+
+  "keywords": [
+    "project statistics",
+    "code statistics",
+    "project analyzer",
+    "code analyzer",
+    "file statistics",
+    "code health",
+    "TODO",
+    "FIXME"
+  ],
+
+  "activationEvents": [],
+
+  "main": "./extension.js",
+
+  "icon": "images/icon.png",
+
+  "license": "MIT",
+
+  "repository": {
+    "type": "git",
+    "url": "YOUR_GITHUB_REPOSITORY_URL"
+  },
+
+  "contributes": {
+    "commands": [
+      {
+        "command": "project-statistics.analyzeProject",
+        "title": "Project Statistics: Analyze Project"
+      }
+    ],
+
+    "configuration": {
+      "title": "Project Statistics",
+      "properties": {
+        "projectStatistics.ignoredFolders": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional folders to exclude from project statistics."
+        }
+      }
+    }
+  },
+
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+
+  "devDependencies": {
+    "@types/vscode": "^1.140.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "eslint": "^10.5.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
