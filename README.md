@@ -1,65 +1,90 @@
-# project-statistics README
+# Project Statistics
 
-This is the README for your extension "project-statistics". After writing up a brief description, we recommend including the following sections.
+A VS Code extension that analyzes your project and provides useful code and file statistics directly inside VS Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Total files count
+- Total lines of code
+- Code language statistics
+- File type statistics
+- Folder statistics
+- Top 10 largest files
+- TODO detection
+- FIXME detection
+- Exact line navigation for TODO/FIXME
+- Search and filter
+- Code Health Score
+- Average lines per file
+- Empty files count
+- Refresh statistics
+- VS Code Status Bar project summary
+- Configurable ignored folders
 
-For example if there is an image subfolder under your extension project workspace:
+## How to Use
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open a project folder in VS Code.
+2. Press `Ctrl + Shift + P`.
+3. Search for:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+   `Project Statistics: Analyze Project`
 
-## Requirements
+4. Select the command.
+5. The Project Statistics dashboard will open.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+You can also click **Project Stats** in the VS Code Status Bar.
 
-## Extension Settings
+## What It Analyzes
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Project Statistics scans the files in your project and provides information about:
 
-For example:
+- Number of files
+- Number of lines
+- Programming languages
+- File extensions
+- Folder-wise statistics
+- Largest files
+- TODO and FIXME comments
 
-This extension contributes the following settings:
+By default, common generated and dependency folders such as `node_modules`, `.git`, `dist`, `build`, and other build/coverage folders are excluded.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## TODO and FIXME
 
-## Known Issues
+The extension detects TODO and FIXME comments and displays:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- File name
+- Exact line number
+- Comment text
 
-## Release Notes
+Clicking an item opens the corresponding file directly at that line.
 
-Users appreciate release notes as you update your extension.
+## Code Health
 
-### 1.0.0
+Project Statistics provides a Code Health Score based on project statistics such as:
 
-Initial release of ...
+- TODO count
+- FIXME count
+- Empty files
+- Average file size
+- Largest file size
 
-### 1.0.1
+The score is intended as a quick project overview and is not a formal code-quality standard.
 
-Fixed issue #.
+## Ignored Folders
 
-### 1.1.0
+Additional folders can be excluded from analysis through VS Code settings.
 
-Added features X, Y, and Z.
+Open:
 
----
+`Settings → Extensions → Project Statistics`
 
-## Working with Markdown
+or add the following to your VS Code settings:
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+```json
+{
+    "projectStatistics.ignoredFolders": [
+        "temp",
+        "logs",
+        "my-folder"
+    ]
+}
