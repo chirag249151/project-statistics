@@ -34,7 +34,7 @@
 
   "repository": {
     "type": "git",
-    "url": "YOUR_GITHUB_REPOSITORY_URL"
+    "url": "https://github.com/chirag249151/project-statistics"
   },
 
   "contributes": {
